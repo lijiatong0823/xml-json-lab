@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Profiles</title>
+</head>
+<body>
+  <h1>User Profiles</h1>
+  <div id="profiles"></div>
+  <p id="message"></p>
+
+  <script>
+    fetch('userProfiles.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Could not load userProfiles.json');
+        }
+        return response.json();
+      })
+      .then(data => {
+        const container = document.querySelector('#profiles');
+
+        data.profiles.forEach(user => {
+          const section = document.createElement('section');
+          const heading = document.createElement('h2');
+          heading.textContent = `${user.firstName} ${user.lastName}`;
+          section.appendChild(heading);
+
+          const details = [
+            `Email: ${user.email}`,
+            `Date of birth: ${user.dateOfBirth}`,
+            `Address: ${user.address.street}, ${user.address.city}, ${user.address.state} ${user.address.zipCode}`,
+            `Theme: ${user.preferences.theme}`,
+            `Language: ${user.preferences.language}`,
+            `Notifications: ${user.preferences.notifications ? 'Yes' : 'No'}`,
+            `Newsletter subscription: ${user.preferences.subscription ? 'Yes' : 'No'}`
+          ];
+
+          details.forEach(text => {
+            const paragraph = document.createElement('p');
+            paragraph.textContent = text;
+            section.appendChild(paragraph);
+          });
+
+          container.appendChild(section);
+        });
+      })
+      .catch(error => {
+        document.querySelector('#message').textContent = error.message;
+      });
+  </script>
+</body>
+</html>

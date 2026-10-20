@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Catalogue</title>
+</head>
+<body>
+  <h1>Book Catalogue</h1>
+  <ul id="books"></ul>
+  <p id="message"></p>
+
+  <script>
+    fetch('book.xml')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Could not load book.xml');
+        }
+        return response.text();
+      })
+      .then(xmlText => {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+
+        if (xmlDoc.querySelector('parsererror')) {
+          throw new Error('Could not parse the XML');
+        }
+
+        const list = document.querySelector('#books');
+
+        xmlDoc.querySelectorAll('book').forEach(book => {
+          const title = book.querySelector('title').textContent;
+          const author = book.querySelector('author').textContent;
+          const price = book.querySelector('price').textContent;
+
+          const item = document.createElement('li');
+          item.textContent = `${title} — ${author} — Price: ${price}`;
+          list.appendChild(item);
+        });
+      })
+      .catch(error => {
+        document.querySelector('#message').textContent = error.message;
+      });
+  </script>
+</body>
+</html>

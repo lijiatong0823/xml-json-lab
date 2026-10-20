@@ -1,0 +1,58 @@
+{
+  "profiles": [
+    {
+      "firstName": "Emma",
+      "lastName": "Wilson",
+      "email": "emma@example.com",
+      "dateOfBirth": "2001-04-12",
+      "address": {
+        "street": "12 Maple Street",
+        "city": "Auckland",
+        "state": "Auckland",
+        "zipCode": "1010"
+      },
+      "preferences": {
+        "theme": "light",
+        "language": "English",
+        "notifications": true,
+        "subscription": true
+      }
+    },
+    {
+      "firstName": "Noah",
+      "lastName": "Brown",
+      "email": "noah@example.com",
+      "dateOfBirth": "1999-08-25",
+      "address": {
+        "street": "8 Garden Road",
+        "city": "Wellington",
+        "state": "Wellington",
+        "zipCode": "6011"
+      },
+      "preferences": {
+        "theme": "dark",
+        "language": "English",
+        "notifications": false,
+        "subscription": false
+      }
+    },
+    {
+      "firstName": "Mia",
+      "lastName": "Lee",
+      "email": "mia@example.com",
+      "dateOfBirth": "2002-01-17",
+      "address": {
+        "street": "35 River Lane",
+        "city": "Christchurch",
+        "state": "Canterbury",
+        "zipCode": "8011"
+      },
+      "preferences": {
+        "theme": "light",
+        "language": "Chinese",
+        "notifications": true,
+        "subscription": false
+      }
+    }
+  ]
+}

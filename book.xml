@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalogue>
+  <book id="b1">
+    <title>The Hobbit</title>
+    <author>J. R. R. Tolkien</author>
+    <price>18.99</price>
+  </book>
+  <book id="b2">
+    <title>Little Women</title>
+    <author>Louisa May Alcott</author>
+    <price>15.50</price>
+  </book>
+  <book id="b3">
+    <title>1984</title>
+    <author>George Orwell</author>
+    <price>16.00</price>
+  </book>
+</catalogue>
